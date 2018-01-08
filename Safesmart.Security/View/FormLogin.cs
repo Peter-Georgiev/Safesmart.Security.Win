@@ -15,6 +15,7 @@ namespace WindowsLogin
         public FormLogin()
         {
             InitializeComponent();
+            MinimizeBox = false;
             MaximizeBox = false;
         }
 
@@ -65,7 +66,7 @@ namespace WindowsLogin
             }
             else
             {
-                MessageBox.Show("Check your username and password");
+                MessageBox.Show("Проверете потребителското име и паролата.");
             }
 
         }
@@ -83,6 +84,22 @@ namespace WindowsLogin
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void TextBoxUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void TextBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }
