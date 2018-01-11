@@ -17,6 +17,12 @@ namespace WindowsLogin
             InitializeComponent();
             MinimizeBox = false;
             MaximizeBox = false;
+
+            string query = "SELECT `UserId`, `UserName` " +
+                "FROM `User`";
+
+            ConnectMDB myDataTable = new ConnectMDB(query);
+            myDataTable.ConnectDB();
         }
 
         private void LabelUsername_Click(object sender, EventArgs e)
