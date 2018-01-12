@@ -17,14 +17,21 @@ namespace WindowsLogin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new FormProgress());
-            
-            //Application.Run(new FormPleaseWait());
+            string query = "SELECT `UserId`, `UserName` " +
+                "FROM `User`";
+            ConnectMDB myDataTable = new ConnectMDB(query);
+
+            if (myDataTable.ConnectDB() != null)
+            {                
+                //Application.Run(new FormProgress());
+
+                //Application.Run(new FormPleaseWait());
 
 
-            Application.Run(new FormLogin());
+                Application.Run(new FormLogin());
 
-            //Application.Run(new FormViewEventRecordr());
+                //Application.Run(new FormViewEventRecordr());
+            }
         }
     }
 }

@@ -46,6 +46,7 @@ namespace WindowsLogin
             {
                 MessageBox.Show("Няма връзка с базата: " + ex.Message);
                 myDataTable = null;
+                Application.Exit();
             }
 
             return myDataTable;

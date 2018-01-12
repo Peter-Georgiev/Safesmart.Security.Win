@@ -58,17 +58,17 @@
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 0;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.Text = "ОК";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(117, 59);
+            this.btnClear.Location = new System.Drawing.Point(109, 59);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 1;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Изчистване";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
@@ -121,7 +121,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Изход";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
@@ -232,7 +232,7 @@
             // btnExportToExcel
             // 
             this.btnExportToExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnExportToExcel.Location = new System.Drawing.Point(208, 59);
+            this.btnExportToExcel.Location = new System.Drawing.Point(205, 59);
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.Size = new System.Drawing.Size(89, 23);
             this.btnExportToExcel.TabIndex = 13;
