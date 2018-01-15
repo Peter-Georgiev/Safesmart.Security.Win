@@ -84,6 +84,11 @@ namespace WindowsLogin
                 print.Add(prnName);
             }
 
+            if (print.Count == 0)
+            {
+                MessageBox.Show("Няма намерени служители.");
+            }
+
             ViewFormEvent(print);
         }
 
