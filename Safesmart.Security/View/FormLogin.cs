@@ -31,10 +31,11 @@ namespace WindowsLogin
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string query = "SELECT `UserId`, `UserName` " + 
+            string passsword = textBoxPassword.Text.Trim();
+            string query = "SELECT `UserId`, `UserName` " +
                 "FROM `User` " +
-                "WHERE `UserName`='"+textBoxUsername.Text.Trim()+"' " +
-                "AND `UserPassword`='"+textBoxPassword.Text.Trim()+"'";
+                "WHERE `UserName`='" + textBoxUsername.Text.Trim() + "' ";// +
+                //"AND `UserPassword`='" + password + "'";
 
             ConnectMDB myDataTable = new ConnectMDB(query);
 
