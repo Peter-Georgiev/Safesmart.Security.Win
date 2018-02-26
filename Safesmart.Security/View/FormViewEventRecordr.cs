@@ -163,7 +163,7 @@ namespace WindowsLogin
                 this.comboBoxEmploee.Items.Add("ВСИЧКИ СЛУЖИТЕЛИ");
             }
 
-            foreach (var pvk in cardEmployeeDepart)
+            foreach (var pvk in cardEmployeeDepart.OrderBy(x => x.Value.EmployeeName))
             {
                 this.comboBoxEmploee.Items.Add(pvk.Value.EmployeeName.ToString());
             }
@@ -190,7 +190,7 @@ namespace WindowsLogin
 
             this.comboBoxDepartmen.Items.Add("ВСИЧКИ ОТДЕЛИ");
 
-            foreach (var pvk in department)
+            foreach (var pvk in department.OrderBy(x => x.Value))
             {
                 this.comboBoxDepartmen.Items.Add(pvk.Value);
             }
