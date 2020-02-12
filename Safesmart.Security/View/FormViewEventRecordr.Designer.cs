@@ -256,7 +256,7 @@
             // 
             this.progressBar.Location = new System.Drawing.Point(404, 69);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(114, 10);
+            this.progressBar.Size = new System.Drawing.Size(160, 10);
             this.progressBar.TabIndex = 15;
             this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
             // 
@@ -264,11 +264,12 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblStatus.Location = new System.Drawing.Point(685, 627);
+            this.lblStatus.Location = new System.Drawing.Point(400, 55);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(101, 13);
             this.lblStatus.TabIndex = 16;
             this.lblStatus.Text = "Oбработени данни";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // FormViewEventRecordr

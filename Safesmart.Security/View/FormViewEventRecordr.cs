@@ -60,7 +60,6 @@ namespace WindowsLogin
             try
             {
                 this.listViewEventRecord.Items.Clear();
-
                 AssController assController = new AssController();
 
                 Dictionary<int, string> doorCtrlID = assController.DoorCtrlID();
@@ -85,16 +84,25 @@ namespace WindowsLogin
                 ErrorMessage errorMessage = new ErrorMessage();
                 errorMessage.ShowErrorMessage(startSearchData, endSearchData, startSearchTime, 
                     endSearchTime, ordinalOptional, searchDepartment, searchUserName);
-        
+
+                lblStatus.Text = string.Format($"{translationText.Get("process")}...10%");
+                lblStatus.Update();
+                progressBar.Value = 10;
+                progressBar.Update();
+
                 EventRecord eventRecord = assController.EventRecordRead(startSearchData, endSearchData, 
                     startSearchTime, endSearchTime, ctrlIDOptional, ordinalOptional);
 
                 //progress bar            
                 Progress<ProgressReport> progress = new Progress<ProgressReport>();
                 progress.ProgressChanged += (o, report) => {
-                    lblStatus.Text = string.Format($"{translationText.Get("process")}...{report.PercentComplete}%");
-                    progressBar.Value = report.PercentComplete;
-                    progressBar.Update();
+                    if (report.PercentComplete > 15)
+                    {
+                        lblStatus.Text = string.Format($"{translationText.Get("process")}...{report.PercentComplete}%");
+                        lblStatus.Update();
+                        progressBar.Value = report.PercentComplete;
+                        progressBar.Update();
+                    }
                 };
                 await ProcessData(eventRecord, progress);
                 lblStatus.Text = translationText.Get("done");
@@ -136,7 +144,6 @@ namespace WindowsLogin
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                //throw;
             }
         }
 
