@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Safesmart.Security.Translations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace WindowsLogin
 {
+
     class ExcelExport
     {
+        TranslationText translationText = new TranslationText();
+
         public void ExportToExcel(List<PrintList> print)
         {
             // Load Excel application
@@ -27,11 +31,11 @@ namespace WindowsLogin
                 // ------------------------------------------------
                 // Creation of header cells
                 // ------------------------------------------------
-                workSheet.Cells[1, "A"] = "ИМЕ ПРЕЗИМЕ ФАМИЛИЯ";
-                workSheet.Cells[1, "B"] = "ДАТА ЧАС";
-                workSheet.Cells[1, "C"] = "ПОРТАЛ";
-                workSheet.Cells[1, "D"] = "ВХОД/ИЗХОД";
-                workSheet.Cells[1, "E"] = "ОТДЕЛ";
+                workSheet.Cells[1, "A"] = translationText.Get("excelA");
+                workSheet.Cells[1, "B"] = translationText.Get("excelB");
+                workSheet.Cells[1, "C"] = translationText.Get("excelC");
+                workSheet.Cells[1, "D"] = translationText.Get("excelD");
+                workSheet.Cells[1, "E"] = translationText.Get("excelE");
 
                 // ------------------------------------------------
                 // Populate sheet with some real data from "cars" list

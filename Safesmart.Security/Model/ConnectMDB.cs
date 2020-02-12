@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using Safesmart.Security.Translations;
 
 namespace WindowsLogin
 {
     class ConnectMDB
     {
         private string Query { get; set; }
+        TranslationText translationText = new TranslationText();
 
         public ConnectMDB(string query)
         {
@@ -44,7 +46,7 @@ namespace WindowsLogin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Няма връзка с базата: " + ex.Message);
+                MessageBox.Show(translationText.Get("noConnectionBase") + ex.Message);
                 myDataTable = null;
                 Application.Exit();
             }

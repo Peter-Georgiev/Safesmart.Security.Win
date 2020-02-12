@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Safesmart.Security.Translations;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,7 +9,9 @@ using System.Threading.Tasks;
 namespace WindowsLogin
 {
     class AssController
-    {    
+    {
+        TranslationText translationText = new TranslationText();
+
         public int SearchDepartment(string comboBoxDepartmenText)
         {
             Dictionary<int, string> department = Department();
@@ -37,12 +40,12 @@ namespace WindowsLogin
         
         public int OrdinalOptional(string comboBoxInOutDoor)
         {
-            if (comboBoxInOutDoor.Trim() == "ИЗХОД")
+            if (comboBoxInOutDoor.Trim() == translationText.Get("exit"))
             {
                 return 0;
             }
 
-            if (comboBoxInOutDoor.Trim() == "ВХОД")
+            if (comboBoxInOutDoor.Trim() == translationText.Get("in"))
             {
                 return 1;
             }
@@ -52,7 +55,7 @@ namespace WindowsLogin
 
         public string SearchUserName(string searchUserName)
         {
-            if (searchUserName != "ВСИЧКИ СЛУЖИТЕЛИ" && searchUserName.Count() > 0)
+            if (searchUserName != translationText.Get("allOfficers") && searchUserName.Count() > 0)
             {
                 return searchUserName;
             }
@@ -156,8 +159,8 @@ namespace WindowsLogin
         {
             Dictionary<int, string> doorOrdinal = new Dictionary<int, string>
             {
-                { 0, "ИЗХОД"},
-                { 1, "ВХОД" }
+                { 0, translationText.Get("exit")},
+                { 1, translationText.Get("in") }
             };
 
             return doorOrdinal;
@@ -167,8 +170,8 @@ namespace WindowsLogin
         {
             Dictionary<int, string> doorCtrlID = new Dictionary<int, string>
             {
-                { 4, "ПОРТАЛ ВЪТРЕШЕН" },
-                { 3, "ПОРТАЛ" }
+                { 4, translationText.Get("portalOut") },
+                { 3, translationText.Get("portal") }
             };
 
             return doorCtrlID;

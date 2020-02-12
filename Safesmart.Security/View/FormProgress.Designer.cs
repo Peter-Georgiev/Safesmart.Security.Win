@@ -1,6 +1,6 @@
 ﻿namespace WindowsLogin
 {
-    partial class FormProgress
+    partial class FormStatus
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProgress));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatus));
             this.labelProgress = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timerProgress = new System.Windows.Forms.Timer(this.components);
@@ -54,16 +54,21 @@
             // 
             this.timerProgress.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // FormProgress
+            // FormStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 86);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.labelProgress);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormProgress";
-            this.Text = "FormProgress";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormStatus";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Progress...0%";
+            this.Load += new System.EventHandler(this.FormProgress_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

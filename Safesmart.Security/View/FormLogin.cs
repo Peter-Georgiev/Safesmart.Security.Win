@@ -31,43 +31,51 @@ namespace WindowsLogin
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string passsword = textBoxPassword.Text.Trim();
-            string query = "SELECT `UserId`, `UserName` " +
-                "FROM `User` " +
-                "WHERE `UserName`='" + textBoxUsername.Text.Trim() + "' ";// +
-                //"AND `UserPassword`='" + password + "'";
+            try
+            {         
+                string passsword = textBoxPassword.Text.Trim();
+                string query = "SELECT `UserId`, `UserName` " +
+                    "FROM `User` " +
+                    "WHERE `UserName`='" + textBoxUsername.Text.Trim() + "' ";// +
+                    //"AND `UserPassword`='" + password + "'";
 
-            ConnectMDB myDataTable = new ConnectMDB(query);
+                ConnectMDB myDataTable = new ConnectMDB(query);
 
-            if (myDataTable.ConnectDB() == null)
-            {
-                //this.Close();
-            }
-
-            int userCount = myDataTable.ConnectDB().AsEnumerable().ToArray().Count();            
-
-            if (userCount == 1)
-            {
-                User user = new User
+                if (myDataTable.ConnectDB() == null)
                 {
-                    UserId = myDataTable.ConnectDB().AsEnumerable()
-                    .Select(i => i.Field<int>("UserID"))
-                    .ToArray()[0],
-                    UserName = myDataTable.ConnectDB().AsEnumerable()
-                    .Select(i => i.Field<string>("UserName"))
-                    .ToArray()[0]
-                };
+                    //this.Close();
+                }
 
-                //FormMain formMain = new FormMain();
-                FormViewEventRecordr formViewEventRecordr = new FormViewEventRecordr();
-                this.Hide();
+                int userCount = myDataTable.ConnectDB().AsEnumerable().ToArray().Count();            
 
-                //formMain.Show();
-                formViewEventRecordr.ShowDialog();
+                if (userCount == 1)
+                {
+                    User user = new User
+                    {
+                        UserId = myDataTable.ConnectDB().AsEnumerable()
+                        .Select(i => i.Field<int>("UserID"))
+                        .ToArray()[0],
+                        UserName = myDataTable.ConnectDB().AsEnumerable()
+                        .Select(i => i.Field<string>("UserName"))
+                        .ToArray()[0]
+                    };
+
+                    //FormMain formMain = new FormMain();
+                    FormViewEventRecordr formViewEventRecordr = new FormViewEventRecordr();
+                    this.Hide();
+
+                    //formMain.Show();
+                    formViewEventRecordr.ShowDialog();
+                }
+                else
+                {
+                    throw new Exception("Проверете потребителското име и паролата.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Проверете потребителското име и паролата.");
+                MessageBox.Show(ex.Message);
+                //throw;
             }
 
         }

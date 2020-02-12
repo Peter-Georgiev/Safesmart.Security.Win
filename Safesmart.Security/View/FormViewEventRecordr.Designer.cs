@@ -50,6 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnExportToExcel = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSubmit
@@ -58,7 +60,7 @@
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 0;
-            this.btnSubmit.Text = "ОК";
+            this.btnSubmit.Text = "Търси";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
@@ -82,6 +84,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listViewEventRecord.GridLines = true;
+            this.listViewEventRecord.HideSelection = false;
             this.listViewEventRecord.HoverSelection = true;
             this.listViewEventRecord.Location = new System.Drawing.Point(14, 85);
             this.listViewEventRecord.Name = "listViewEventRecord";
@@ -175,7 +178,7 @@
             this.comboBoxInOutDoor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxInOutDoor.FormattingEnabled = true;
             this.comboBoxInOutDoor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxInOutDoor.Location = new System.Drawing.Point(449, 20);
+            this.comboBoxInOutDoor.Location = new System.Drawing.Point(446, 20);
             this.comboBoxInOutDoor.Name = "comboBoxInOutDoor";
             this.comboBoxInOutDoor.Size = new System.Drawing.Size(72, 21);
             this.comboBoxInOutDoor.Sorted = true;
@@ -249,12 +252,33 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Избери вход или изход";
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(404, 69);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(114, 10);
+            this.progressBar.TabIndex = 15;
+            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStatus.Location = new System.Drawing.Point(685, 627);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(101, 13);
+            this.lblStatus.TabIndex = 16;
+            this.lblStatus.Text = "Oбработени данни";
+            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
+            // 
             // FormViewEventRecordr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(856, 639);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnExportToExcel);
             this.Controls.Add(this.label3);
@@ -304,5 +328,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnExportToExcel;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

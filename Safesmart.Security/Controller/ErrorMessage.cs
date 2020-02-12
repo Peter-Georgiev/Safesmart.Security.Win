@@ -10,6 +10,9 @@ namespace WindowsLogin
 {
     class ErrorMessage
     {
+        string DATE_FORMAT = "MM/dd/yyyy";
+        string TIME_FORMAT = "HH:mm:ss";
+
         public void ShowErrorMessage(string startSearchData, string endSearchData,
             string startSearchTime, string endSearchTime,
             int ordinalOptional, int searchDepartment, string searchUserName)
@@ -17,39 +20,39 @@ namespace WindowsLogin
             FormViewEventRecordr formViewEventRecordr = new FormViewEventRecordr();
 
             DateTime startSearchDataParse = DateTime
-                .ParseExact(startSearchData, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                .ParseExact(startSearchData, DATE_FORMAT, CultureInfo.InvariantCulture);
             DateTime endSearchDataParse = DateTime
-                .ParseExact(endSearchData, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                .ParseExact(endSearchData, DATE_FORMAT, CultureInfo.InvariantCulture);
 
             if (startSearchDataParse > endSearchDataParse)
             {
-                MessageBox.Show("Некоректно поълнена начална или крайна дата");
-                
-                formViewEventRecordr.FormView();
+                throw new Exception("Некоректно поълнена начална или крайна дата");
             }
 
             DateTime startSearchTimeParse = DateTime
-                .ParseExact(startSearchTime, "HH:mm:ss", CultureInfo.InvariantCulture);
+                .ParseExact(startSearchTime, TIME_FORMAT, CultureInfo.InvariantCulture);
             DateTime endSearchTimeParse = DateTime
-                .ParseExact(endSearchTime, "HH:mm:ss", CultureInfo.InvariantCulture);
+                .ParseExact(endSearchTime, TIME_FORMAT, CultureInfo.InvariantCulture);
 
             if (startSearchTimeParse > endSearchTimeParse)
             {
-                MessageBox.Show("Некоректно поълнен начален или краен час");
-
-                formViewEventRecordr.FormView();
+                throw new Exception("Некоректно поълнен начален или краен час");
             }
 
             if (ordinalOptional == -1)
             {
-                MessageBox.Show("Трябва да изберете \"ВХОД\" или \"ИЗХОД\"");
-
-                formViewEventRecordr.FormView();
+                throw new Exception("Трябва да изберете \"ВХОД\" или \"ИЗХОД\"");
             }
 
             if (searchDepartment == 0)
             {
-                //MessageBox.Show("Трябва да изберете \"отдел\"");
+                //throw new Exception("Трябва да изберете \"отдел\"");
+                //formViewEventRecordr.FormView();
+            }
+
+            if (searchUserName.Length == 0)
+            {
+                //throw new Exception("Трябва да изберете \"служител\"");
                 //formViewEventRecordr.FormView();
             }
         }

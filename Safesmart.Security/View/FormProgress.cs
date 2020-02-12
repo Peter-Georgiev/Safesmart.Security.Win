@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace WindowsLogin
 {
-    public partial class FormProgress : Form
+    public partial class FormStatus : Form
     {
-        public FormProgress(int length = 10)
+        public FormStatus(int length = 10)
         {
             InitializeComponent();
             MinimizeBox = false;
@@ -89,6 +89,19 @@ namespace WindowsLogin
                     progressBar.PerformStep();
                 }
             }
+        }
+
+        private void FormProgress_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void func()
+        {
+            BackgroundWorker bw = new BackgroundWorker();
+            //bw.DoWork += new DoWorkEventHandler();
+            //bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+
         }
     }
 }
